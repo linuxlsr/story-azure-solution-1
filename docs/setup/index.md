@@ -43,3 +43,9 @@ So, when I have to create resources to subscriptions, I have the following 2 rea
     }
   }
 ```
+
+### Register Github Actions as authorized app for azure
+[using a service principal](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#create-an-azure-active-directory-application-and-service-principal)
+
+### Register Azure DevOps as authorized app for azure
+Same as above, I have these from previous work tied to my main tenant.
