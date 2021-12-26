@@ -14,7 +14,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: check bin
+      - name: tf version
         run: |
-          ls /usr/local/bin
+          terraform --version
       - run: echo "🍏 This job's status is ${{ job.status }}."
