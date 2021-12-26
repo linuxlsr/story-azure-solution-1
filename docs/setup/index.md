@@ -49,3 +49,9 @@ So, when I have to create resources to subscriptions, I have the following 2 rea
 
 ### Register Azure DevOps as authorized app for azure
 Same as above, I have these from previous work tied to my main tenant.
+
+### Explore Github Actions
+references:
+- [azure](https://github.com/marketplace?query=Azure&type=actions)
+- [terraform](https://github.com/marketplace/actions/hashicorp-setup-terraform)
+- [terragrunt](https://github.com/marketplace/actions/terragrunt-github-actions)
