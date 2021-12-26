@@ -11,6 +11,6 @@ jobs:
       - name: Terragrunt GitHub Actions
         uses: the-commons-project/terragrunt-github-actions@1.0.6
       - name: check versions
-      - run: terraform --version
-      - run: terragrunt --version
+        run: |
+          terraform --version; terragrunt --version
 
