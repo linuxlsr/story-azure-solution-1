@@ -1,16 +1,16 @@
-#name: TF setup
-#on: [push]
-#jobs:
-#  Terraform setup:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Check out repository code
-#        uses: actions/checkout@v2
+name: TF setup
+on: [push]
+jobs:
+  Terraform setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
 #      - name: HashiCorp - Setup Terraform
 #        uses: hashicorp/setup-terraform@v1.2.1
 #      - name: Terragrunt GitHub Actions
 #        uses: the-commons-project/terragrunt-github-actions@1.0.6
-#      - name: check versions
-#        run: |
-#          terraform --version; terragrunt --version
+      - name: check version
+        run: |
+          terraform --version; terragrunt --version
 
