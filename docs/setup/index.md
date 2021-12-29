@@ -55,3 +55,7 @@ references:
 - [azure](https://github.com/marketplace?query=Azure&type=actions)
 - [terraform](https://github.com/marketplace/actions/hashicorp-setup-terraform)
 - [terragrunt](https://github.com/marketplace/actions/terragrunt-github-actions)
+
+### Explore pre & post commit hooks
+[pre-commit tool](https://pre-commit.com/)
+[pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
