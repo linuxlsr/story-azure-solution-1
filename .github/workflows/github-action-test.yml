@@ -30,3 +30,6 @@ jobs:
 
       - name: Terragrunt GitHub Actions
         uses: the-commons-project/terragrunt-github-actions@1.0.6
+        with:
+          tf_actions_binary: 'terraform'
+          tf_actions_subcommand: 'init'
