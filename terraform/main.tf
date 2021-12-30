@@ -1,4 +1,4 @@
-module rg {
+module "rg" {
   source      = "../modules/rg"
   APPNAME     = var.APPNAME
   REGION      = var.REGION
