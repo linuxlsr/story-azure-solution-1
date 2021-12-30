@@ -10,16 +10,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-#      - name: HashiCorp - Setup Terraform
-#        uses: hashicorp/setup-terraform@v1.2.1
-
-#      - name: check version
-#        run: |
-#          terraform --version
 
       - name: Azure Login
         uses: Azure/login@v1
-
         with:
           creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
           enable-AzPSSession: true

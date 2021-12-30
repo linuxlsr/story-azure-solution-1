@@ -1,12 +1,10 @@
-include {
-  path = find_in_parent_folders()
+terraform {
+  source ="../modules/rg"
+  extra_arguments "common_vars" {
+    commands = ["plan", "destroy"]
+    arguments = [
+    "-var-file=${get_terragrunt_dir()}/../dev.tfvars"
+    ]
+  }
 }
 
-terraform {
-  source ="modules/rg"
-}
-inputs= {
-  APPNAME     = "story"
-  ENVIRONMENT = "dev"
-  REGION      = "westus"
-}
