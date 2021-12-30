@@ -1,48 +1,12 @@
 ## Creating the prerequisites
 
 ### Azure Subscriptions
-I needed a method to organize my Azure subscriptions, and create a specific workspace for this experiment. I have two main subscriptions, one basic Azure Plan and one student subscription, which saves me money but I can't add subscriptions with that sub as the root tenant.
+Initial effort with management groups was informative but unnecessary for the immediate task, perhaps I'll add it as a later enhancement.
+For this exercise, I have created an completely separate and new subscription.
+- 3mn-nprod
 
-So, I create a management group in my main subscription, and added two more subs, one for prod and one for non prod.
-
-#### Management Group Structure
-Tenant Root Group
-- 3MN Root MG
-    - SMN Story MG
-        - 3mn-nprod sub
-        - 3mn-prod sub
-        
-So, when I have to create resources to subscriptions, I have the following 2 ready to go:
-```
-  {
-    "cloudName": "AzureCloud",
-    "homeTenantId": "<same value-60>",
-    "id": "<diff-value-f4>",
-    "isDefault": false,
-    "managedByTenants": [],
-    "name": "3mn-prod",
-    "state": "Enabled",
-    "tenantId": "<same value-60>",
-    "user": {
-      "name": "<my-username>",
-      "type": "user"
-    }
-  },
-  {
-    "cloudName": "AzureCloud",
-    "homeTenantId": "<same value-60>",
-    "id": "<diff-value-37>",
-    "isDefault": false,
-    "managedByTenants": [],
-    "name": "3mn-nprod",
-    "state": "Enabled",
-    "tenantId": "<same value-60>",
-    "user": {
-      "name": "<my-username>",
-      "type": "user"
-    }
-  }
-```
+I can upgrade the account and add a new subscription later to test prod and dr env pipelines
+- 3mn-prod
 
 ### Register Github Actions as authorized app for azure
 [using a service principal](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#create-an-azure-active-directory-application-and-service-principal)
@@ -54,7 +18,8 @@ This gave Owner privs to github to create any resources, not constrained to a sp
 ```
 
 ### Register Azure DevOps as authorized app for azure
-Same as above, I have these from previous work tied to my main tenant.
+I have this from previous work tied to my main account. Github actions are working to the new account, so I'll just use the devops project board functionality.
+
 
 ### Explore Github Actions
 references:
@@ -66,10 +31,13 @@ references:
 At this point, I have an action yaml that checks out the code to a runner, logs into azure, and runs a simple az resource list command.
 Ready to start focusing on the terraform / terragrunt steps.
 
+
 ### Explore pre & post commit hooks
 [pre-commit tool](https://pre-commit.com/)
 [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
 
 
+### Initial setup of state storage
+Created a [script](scripts/standup-state-storage.sh) to stand up resources, added them to github secrets so they can be added to the pipeline for terraform state management. This is easier than standing it up through terraform locally and then migrating the state file to cloud storage for pipeline use.
 
 
