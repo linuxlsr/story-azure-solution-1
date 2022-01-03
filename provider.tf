@@ -2,8 +2,9 @@
 
 provider "azurerm" {
   features {}
-  version = "~>2.5.0"
 }
+
+provider "azuread" {}
 
 terraform {
   backend "azurerm" {}

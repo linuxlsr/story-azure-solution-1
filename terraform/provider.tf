@@ -1,6 +1,9 @@
 provider "azurerm" {
   features {}
 }
+
+provider "azuread" {}
+
 terraform {
   backend "azurerm" {
     resource_group_name  = "mgt-tfstate-rg"
