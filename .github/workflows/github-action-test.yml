@@ -27,5 +27,7 @@ jobs:
           tf_actions_binary: 'terraform'
           tf_actions_subcommand: 'init'
           var_file: dev.tfvars
-          backend_config: token={{ secrets.key }}
+          storage_account_name: {{ secrets.storage_account_name }}
+          key: {{ secrets.key }}
+          container_name: {{ secrets.container_name }}
           backend_config_file: provider.tf
