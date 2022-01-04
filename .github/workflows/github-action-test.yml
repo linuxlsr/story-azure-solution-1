@@ -17,12 +17,15 @@ jobs:
           creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
           enable-AzPSSession: true
 
-      - name: check resources
+      - name: change directory
         run: |
-          az resource list
+          cd terraform
 
-      - name: Terragrunt GitHub Actions
+      - name: Terraform GitHub Actions
         uses: the-commons-project/terragrunt-github-actions@1.0.6
         with:
           tf_actions_binary: 'terraform'
           tf_actions_subcommand: 'init'
+          var_file: dev.tfvars
+          backend_config: token={{ secrets.key }}
+          backend_config_file: provider.tf
